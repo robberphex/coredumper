@@ -1,4 +1,4 @@
-package main
+package coredumper
 
 /*
 #cgo CFLAGS: -I${SRCDIR}/include/
@@ -18,8 +18,13 @@ func main() {
 	fmt.Println("Hello!")
 	coredumpPath := fmt.Sprintf("/tmp/coredump-%d", os.Getpid())
 
-	res := int(C.WriteCoreDump(C.CString(coredumpPath)))
+	res := WriteCoreDump(coredumpPath)
 	fmt.Printf("GetCoreDump-> %d\n", res)
 
 	fmt.Printf("CoreDumped to %s\n", coredumpPath)
+}
+
+func WriteCoreDump(coredumpPath string) int {
+	res := int(C.WriteCoreDump(C.CString(coredumpPath)))
+	return res
 }
