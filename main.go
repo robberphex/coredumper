@@ -14,7 +14,7 @@ import (
 	"os"
 )
 
-func main() {
+func main1() {
 	fmt.Println("Hello!")
 	coredumpPath := fmt.Sprintf("/tmp/coredump-%d", os.Getpid())
 
