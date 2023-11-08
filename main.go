@@ -2,6 +2,8 @@
 
 package coredumper
 
-func WriteCoreDump(coredumpPath string) int {
-	return -1
+import "fmt"
+
+func WriteCoreDump(coredumpPath string) (int, error) {
+	return -1, fmt.Errorf("this platform does not support WriteCoreDump")
 }
